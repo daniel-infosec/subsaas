@@ -54,6 +54,8 @@ func main() {
 	fmt.Println(box(orgList))
 	fmt.Println("Adobe Creative Cloud")
 	fmt.Println(adobecreativecloud(orgList))
+	fmt.Println("Servicenow")
+	fmt.Println(servicenow(orgList))
 }
 
 type SlackMatch struct {
@@ -181,6 +183,16 @@ func adobecreativecloud(s []string) []string {
 		}
 
 		if strings.Contains(string(body), "while(1);\"fed\"") {
+			matches = append(matches, name)
+		}
+	}
+	return matches
+}
+
+func servicenow(s []string) []string {
+	var matches []string
+	for _, name := range s {
+		if resolveMatch(name + ".service-now.com") {
 			matches = append(matches, name)
 		}
 	}
