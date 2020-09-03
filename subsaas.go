@@ -56,6 +56,8 @@ func main() {
 	fmt.Println(adobecreativecloud(orgList))
 	fmt.Println("Servicenow")
 	fmt.Println(servicenow(orgList))
+	fmt.Println("Snowflake Computing")
+	fmt.Println(snowflake(orgList))
 }
 
 type SlackMatch struct {
@@ -193,6 +195,17 @@ func servicenow(s []string) []string {
 	var matches []string
 	for _, name := range s {
 		if resolveMatch(name + ".service-now.com") {
+			matches = append(matches, name)
+		}
+	}
+	return matches
+}
+
+func snowflake(s []string) []string {
+	var matches []string
+	for _, name := range s {
+		error_page, _ := bodyMatch("https://" + name + ".snowflakecomputing.com/console/login#/", "403")
+		if !error_page {
 			matches = append(matches, name)
 		}
 	}
