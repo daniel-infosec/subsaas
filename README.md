@@ -55,6 +55,18 @@ Adobe Creative Cloud
 [amazon apple ge boeing walmart ford intel fedex]
 ```
 
+## Current Supported SaaS Checks
+
+* Splunkcloud
+* Slack (low fidelity)
+* Zoom
+* Atlassian
+* Okta
+* Box
+* Adobe Creative Cloud
+* Servicenow
+* Snowflake Computing
+
 ## Docker
 
 Alternatively, if you have Docker installed and don't want to bother installing Go or getting the binary allowlisted, you only have to do the following. Note that if you make any changes or update, you'll have to rebuild the docker file manually.
