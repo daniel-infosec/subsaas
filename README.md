@@ -57,7 +57,7 @@ Adobe Creative Cloud
 
 ## Docker
 
-Alternatively, if you have Docker installed and don't want to bother installing Go or getting the binary allowlisted, you only have to do the following.
+Alternatively, if you have Docker installed and don't want to bother installing Go or getting the binary allowlisted, you only have to do the following. Note that if you make any changes or update, you'll have to rebuild the docker file manually.
 
 ### Windows
 
