@@ -60,6 +60,8 @@ func main() {
 	fmt.Println(snowflake(orgList))
 	fmt.Println("Workday")
 	fmt.Println(workday(orgList))
+	fmt.Println("Pagerduty")
+	fmt.Println(pagerduty(orgList))
 }
 
 type SlackMatch struct {
@@ -224,6 +226,23 @@ func workday(s []string) []string {
 		error_page, _ = bodyMatch("https://www.myworkday.com/" + name + "/login.htmld", "Page not found.")
 		if !error_page {
 			matches = append(matches, name)
+		}
+	}
+	return matches
+}
+
+func pagerduty(s []string) []string {
+	var matches []string
+	for _, name := range s {
+		error_page, _ := bodyMatch("https://" + name + ".pagerduty.com/sign_in", "Account Does Not Exist")
+		if !error_page {
+			expired_page, _ := bodyMatch("https://" + name + ".pagerduty.com/sign_in", "The free trial period for this account has ended")
+			if !expired_page {
+				matches = append(matches, name)
+			} else {
+				fmt.Println("here")
+				matches = append(matches, name + ": free trial expired")
+			}
 		}
 	}
 	return matches
