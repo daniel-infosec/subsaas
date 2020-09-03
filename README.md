@@ -58,7 +58,7 @@ Adobe Creative Cloud
 ## Current Supported SaaS Checks
 
 * Splunkcloud
-* Slack (low fidelity)
+* Slack (low fidelity and it looks like Slack fixed the email address information leakage)
 * Zoom
 * Atlassian
 * Okta
