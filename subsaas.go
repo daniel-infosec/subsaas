@@ -240,7 +240,6 @@ func pagerduty(s []string) []string {
 			if !expired_page {
 				matches = append(matches, name)
 			} else {
-				fmt.Println("here")
 				matches = append(matches, name + ": free trial expired")
 			}
 		}
