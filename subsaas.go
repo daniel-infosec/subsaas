@@ -58,6 +58,8 @@ func main() {
 	fmt.Println(servicenow(orgList))
 	fmt.Println("Snowflake Computing")
 	fmt.Println(snowflake(orgList))
+	fmt.Println("Workday")
+	fmt.Println(workday(orgList))
 }
 
 type SlackMatch struct {
@@ -205,6 +207,21 @@ func snowflake(s []string) []string {
 	var matches []string
 	for _, name := range s {
 		error_page, _ := bodyMatch("https://" + name + ".snowflakecomputing.com/console/login#/", "403")
+		if !error_page {
+			matches = append(matches, name)
+		}
+	}
+	return matches
+}
+
+func workday(s []string) []string {
+	var matches []string
+	for _, name := range s {
+		error_page, _ := bodyMatch("https://wd5.myworkday.com/" + name, "Page not found.")
+		if !error_page {
+			matches = append(matches, name)
+		}
+		error_page, _ = bodyMatch("https://www.myworkday.com/" + name + "/login.htmld", "Page not found.")
 		if !error_page {
 			matches = append(matches, name)
 		}
