@@ -55,6 +55,18 @@ Adobe Creative Cloud
 [amazon apple ge boeing walmart ford intel fedex]
 ```
 
+## Docker
+
+Alternatively, if you have Docker installed and don't want to bother installing Go or getting the binary allowlisted, you only have to do the following.
+
+### Windows
+
+`.\subsaas.ps1 -org praetorian`
+
+### Linux
+
+`./subsaas.sh -org praetorian`
+
 # golang
 
 This is my first attempt at pivoting from Python to Go. If you notice any bad habits or bad code, please feel free to call me out (gently if you can).
