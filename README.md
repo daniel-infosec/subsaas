@@ -66,6 +66,7 @@ Adobe Creative Cloud
 * Adobe Creative Cloud
 * Servicenow
 * Snowflake Computing
+* Workday
 
 ## Docker
 
